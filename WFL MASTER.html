@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)https://namznewera.my.id/ -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WFL MASTER - LIST ALL CHEAT 🇲🇨</title>
+
+  <link rel="stylesheet" href="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/all.min.css">
+  <link rel="stylesheet" href="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/style.css">
+
+  <style>
+    /* PRELOADER STYLES */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0e17; /* Warna gelap sesuai tema */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999999; /* Sangat tinggi agar menutupi semuanya */
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(59, 130, 246, 0.1);
+      border-top: 4px solid #3b82f6; /* Warna biru sesuai referensi */
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 25px;
+    }
+
+    .loader-text {
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      letter-spacing: 3px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      opacity: 0.9;
+      text-align: center;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    #preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    /* FIX NAVBAR POSITION */
+    .navbar {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 15px 20px !important;
+      background: #020617 !important;
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 9999 !important;
+    }
+
+    .navbar .logo {
+      flex: 1 !important;
+      font-weight: bold !important;
+      font-size: 1.4rem !important;
+      color: #fff !important;
+    }
+
+    .navbar .logo span {
+      color: #3b82f6 !important;
+    }
+
+    .menu-toggle {
+      display: block !important;
+      cursor: pointer !important;
+      font-size: 1.5rem !important;
+      color: #fff !important;
+      z-index: 10000 !important;
+    }
+
+    /* FIX FLOATING BUTTON */
+    .btn-bantuan {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      background: #fff !important;
+      color: #020617 !important;
+      padding: 12px 20px !important;
+      border-radius: 999px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      font-weight: bold !important;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.6) !important;
+      z-index: 999999 !important; /* Nilai maksimal */
+      text-decoration: none !important;
+    }
+
+    .btn-bantuan i {
+      color: #00a884 !important;
+      font-size: 1.2rem !important;
+    }
+
+    /* SIDEBAR STYLING */
+    .sidebar {
+      position: fixed !important;
+      top: 0 !important;
+      right: -300px !important;
+      width: 280px !important;
+      height: 100% !important;
+      background: #020617 !important;
+      z-index: 1000001 !important;
+      transition: 0.4s ease !important;
+      padding: 30px 20px !important;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.8) !important;
+    }
+
+    .sidebar.active {
+      right: 0 !important;
+    }
+
+    .overlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: rgba(0,0,0,0.7) !important;
+      z-index: 1000000 !important;
+      display: none !important;
+    }
+
+    .overlay.active {
+      display: block !important;
+    }
+
+    .sidebar-header {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      margin-bottom: 30px !important;
+    }
+
+    .sidebar-menu {
+      list-style: none !important;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 15px !important;
+    }
+
+    .sidebar-menu a {
+      color: #fff !important;
+      text-decoration: none !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 15px !important;
+      padding: 12px !important;
+      background: rgba(255,255,255,0.05) !important;
+      border-radius: 10px !important;
+    }
+
+    .sidebar-menu a i {
+      color: #3b82f6 !important;
+    }
+
+    /* PAYMENT LOGO STYLING */
+    .payment-grid-static {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+    }
+    .payment-grid-static img {
+      background: white;
+      padding: 5px;
+      border-radius: 8px;
+      object-fit: contain;
+      width: 70px;
+      height: 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* SEARCH & CATEGORY STYLING */
+    .search-section {
+      padding: 15px 10px;
+      background: #020617;
+    }
+    
+    .search-title {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .search-title i {
+      color: #3b82f6; /* Blue color to match UI */
+    }
+    
+    .search-container {
+      position: relative;
+      margin-bottom: 15px;
+      display: flex;
+    }
+    
+    .search-container input {
+      width: 100%;
+      padding: 12px 15px;
+      background: #fff;
+      border: none;
+      border-radius: 5px 0 0 5px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    
+    .search-container .search-btn {
+      background: #3b82f6; /* Blue color to match UI */
+      border: none;
+      padding: 0 15px;
+      border-radius: 0 5px 5px 0;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .category-container {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    .category-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .category-btn {
+      padding: 8px 15px;
+      background: #1e293b;
+      color: #94a3b8;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      border: none;
+      transition: 0.3s;
+    }
+    
+    .category-btn.active {
+      background: #3b82f6; /* Blue color to match UI */
+      color: #fff;
+    }
+
+    /* FORCE 3 COLUMNS FOR PRODUCTS */
+    .product-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+      padding: 10px 5px !important;
+    }
+
+    .product-card {
+      background: #0d1117 !important;
+      padding: 6px !important;
+      border-radius: 10px !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      position: relative !important;
+    }
+
+    .product-card img {
+      width: 100% !important;
+      aspect-ratio: 1/1 !important;
+      object-fit: cover !important;
+      border-radius: 8px !important;
+      margin-bottom: 5px !important;
+    }
+
+    .product-card h3 {
+      font-size: 0.65rem !important;
+      margin-bottom: 8px !important;
+      min-height: 2.5em !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1.2 !important;
+    }
+
+    .product-card .tag {
+      position: absolute !important;
+      top: 0 !important;
+      right: 0 !important;
+      font-size: 0.55rem !important;
+      padding: 3px 8px !important;
+      border-radius: 0 10px 0 10px !important; /* Menempel di pojok kanan atas gambar */
+      z-index: 10 !important;
+      font-weight: bold !important;
+      text-transform: uppercase !important;
+      box-shadow: -1px 1px 5px rgba(0,0,0,0.3) !important;
+    }
+
+    .buy-btn {
+      font-size: 0.6rem !important;
+      padding: 5px 2px !important;
+      width: 100% !important;
+      justify-content: center !important;
+    }
+
+    @media (max-width: 600px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 5px !important;
+      }
+      .product-card h3 {
+        font-size: 0.6rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader" class="fade-out">
+  <div class="loader"></div>
+  <div class="loader-text">WFL MASTER</div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar"> 
+  <div class="logo">WFL<span>MASTER</span></div> 
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</header>
+
+<!-- SIDEBAR & OVERLAY -->
+<div class="overlay" id="overlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h3 style="color:#3b82f6;">MENU ADMIN</h3>
+    <div id="closeMenu" style="cursor:pointer; font-size:1.5rem;"><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <ul class="sidebar-menu">
+    <li><a href="https://wa.me/6285894026997" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Admin</a></li>
+    <li><a href="https://whatsapp.com/channel/0029VakFTZvEquiPkaGoKl0e" target="_blank"><i class="fa-solid fa-bullhorn"></i> Saluran Admin</a></li>
+  </ul>
+</div>
+
+<!-- BANNER -->
+<section class="banner">
+  <h1>WFL <span style="color: #3b82f6;">MASTER</span></h1>
+  <p>@woopfleonss</p>
+</section>
+
+<!-- PRODUK -->
+<section class="products">
+  <h2 id="productSectionTitle">LIST ALL ITEM</h2>
+  <div class="marquee">
+    <p style="color: #3b82f6;">WFL MASTER</p> TRUSTED SINCE 2023 - ALL SAFE &amp; OPEN 24 JAM - OTOMATIS SEND KEY &amp; LINK DOWNLOAD</p>
+  </div>
+
+  <!-- SEARCH & CATEGORY SECTION -->
+  <section class="search-section">
+    <div class="search-title">
+      <i class="fa-solid fa-fire"></i> POPULER
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Mau cari cheat apa?">
+      <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <div class="category-container" id="categoryList">
+      <button class="category-btn active" data-category="ALL">ALL</button>
+      <button class="category-btn" data-category="FREEFIRE">Free Fire</button>
+      <button class="category-btn" data-category="MLBB">MLBB</button>
+      <button class="category-btn" data-category="8BALL">8BALL</button>
+      <button class="category-btn" data-category="PUBG">PUBG</button>
+      <button class="category-btn" data-category="DELTA FORCE">DELTA FORCE</button>
+    </div>
+  </section>
+  
+  <div class="product-grid" id="productList"><div class="product-card">
+        <span class="tag android">ANDROID</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/DP.png" alt="DRIP CLIENT NO ROOT FF" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>DRIP CLIENT NO ROOT FF</h3>
+        <a href="drip.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag android">ANDROID</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/HG.png" alt="HG CHEATS NO ROOT FF" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>HG CHEATS NO ROOT FF</h3>
+        <a href="hg.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag android">ANDROID</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/apkmod-namz_1775406880.png" alt="PATO TEAM  NO ROOT FF" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>PATO TEAM  NO ROOT FF</h3>
+        <a href="pato.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag android">ANDROID</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/drag-head_1775407504.jpg" alt="APK MOD AIMXIT NAMZ NO ROOT" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>APK MOD AIMXIT NAMZ NO ROOT</h3>
+        <a href="aimxit.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag android">ANDROID</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/hologram_1775407483.jpg" alt="HOLOGRAM" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>HOLOGRAM</h3>
+        <a href="Hologram.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag android">ANDROID</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/file-ios-imazing_1775409006.jpg" alt="FILE ANDROID DRAG HS &amp; AIMHEAD" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>FILE ANDROID DRAG HS &amp; AIMHEAD</h3>
+        <a href="FileIOS.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag ios">IOS</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/FL.jpg" alt="FLOURITE FF IOS" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>FLOURITE FF IOS</h3>
+        <a href="Fluorite.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag ios">IOS</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/GBOX.jpg" alt="GBOX" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>GBOX</h3>
+        <a href="GBOX.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag iphone">IPHONE</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/pandora-mlbb_1775407793.jpg" alt="FILE IOS IMAZING" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>FILE IOS IMAZING</h3>
+        <a href="FileIOS.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag pc">PC</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/fox-xiterz_1775408797.jpg" alt="NAMZ V2 INTERNAL PC" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>NAMZ V2 INTERNAL PC</h3>
+        <a href="internalpc.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag pc">PC</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/BR.jpeg" alt="BRMODZ EMU PC" onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>BRMODZ EMU PC</h3>
+        <a href="BRmodz.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div><div class="product-card">
+        <span class="tag pc">PC</span>
+        <img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/bypas-xg-team-pc-.jpg" alt="BYPAS XG TEAM PC " onerror="this.src=&#39;assets/img/qris.png&#39;">
+        <h3>BYPAS XG TEAM PC </h3>
+        <a href="ByPasXG.html" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"></path>
+            <circle cx="5" cy="15" r="1"></circle><circle cx="11" cy="15" r="1"></circle>
+          </svg> BELI SEKARANG
+        </a>
+      </div></div>
+</section>
+  
+<!-- BENEFIT -->
+<section class="benefit">
+  <h2>BENEFIT BELI DI WFL MASTER</h2>
+  <div class="benefit-grid">
+    <div class="box"><h3>💲 Harga Termurah</h3><p>Harga ramah &amp; kompetitif</p></div>
+    <div class="box"><h3>⚡ Proses Kilat</h3><p>Fast respon &amp; pengerjaan cepat</p></div>
+    <div class="box"><h3>🔒 Aman &amp; Terpercaya</h3><p>Trusted seller &amp; aman</p></div>
+    <div class="box"><h3>🕐 Open 24 Jam</h3><p>Siap melayani kapan saja</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <a href="https://wa.me/6285894026997" target="_blank" class="f-btn f-wa" style="background: #3b82f6 !important;">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+  </a>
+</section>
+
+<!-- PAYMENT -->
+<section class="payment">
+  <div class="payment-area">
+    <div class="pay-title">PAYMENT METHOD</div>
+    <div class="payment-grid-static" id="paymentList"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/Logo_QRIS.svg" alt="QRIS"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/Logo_dana_blue.svg" alt="DANA"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/Gopay_logo.svg" alt="GOPAY"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/Logo_ovo_purple.svg" alt="OVO"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/shopeepay-logo-png-transparent.png" alt="SHOPEEPAY" style="display: none;"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/Bank_Central_Asia.svg" alt="BCA"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/512px-BRI_Logo.svg.png" alt="BRI" style="display: none;"><img src="./NAMZ NEWERA - LIST ALL CHEAT 🇲🇨_files/Bank_Mandiri_logo_2016.svg" alt="MANDIRI"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 WFL <span style="color: #3b82f6;">MASTER</span> • ALL RIGHTS RESERVED</p>
+</footer>
+
+<!-- TOMBOL BANTUAN -->
+<a href="https://wa.me/628589026997" class="btn-bantuan" target="_blank">
+  <i class="fa-solid fa-headset"></i> Bantuan
+</a>
+
+<!-- JAVASCRIPT -->
+<script>
+  // PRELOADER LOGIC
+  window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+    }, 1000); // Memberikan jeda 1 detik agar animasi terlihat
+  });
+
+  // SIDEBAR LOGIC
+  const menuToggle = document.getElementById('menuToggle');
+  const closeMenu = document.getElementById('closeMenu');
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+
+  menuToggle.onclick = () => {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+  };
+
+  closeMenu.onclick = () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  };
+
+  overlay.onclick = () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  };
+
+  // LOAD PRODUCTS WITH SEARCH & FILTER
+  let allProducts = [];
+  const productList = document.getElementById('productList');
+  const searchInput = document.getElementById('searchInput');
+  const categoryBtns = document.querySelectorAll('.category-btn');
+
+  function displayProducts(products) {
+    productList.innerHTML = '';
+    if (products.length === 0) {
+      productList.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 20px; color: #94a3b8;">Produk tidak ditemukan...</div>';
+      return;
+    }
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <span class="tag ${p.platform.toLowerCase()}">${p.platform}</span>
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='assets/img/qris.png'">
+        <h3>${p.name}</h3>
+        <a href="detail.html?id=${p.id}" class="buy-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5z"/>
+            <circle cx="5" cy="15" r="1"/><circle cx="11" cy="15" r="1"/>
+          </svg> BELI SEKARANG
+        </a>
+      `;
+      productList.appendChild(card);
+    });
+  }
+
+  function filterProducts() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+
+    const filtered = allProducts.filter(p => {
+      const name = p.name.toUpperCase();
+      const desc = p.desc.toUpperCase();
+      const platform = p.platform.toUpperCase();
+      
+      const matchesSearch = name.includes(searchTerm.toUpperCase()) || 
+                            desc.includes(searchTerm.toUpperCase());
+      
+      let matchesCategory = false;
+      if (activeCategory === 'ALL') {
+        matchesCategory = true;
+      } else if (activeCategory === 'FREEFIRE') {
+        const ffKeywords = ['DRIP', 'HG', 'FLOURITE FF', 'APKMOD', 'DRAG HEAD', 'HOLOGRAM', 'FILE IOS IMAZING', 'BRMODZ', 'GBOX', 'FOX INTERNAL', 'BRMODZ EMU'];
+        matchesCategory = ffKeywords.some(key => name.includes(key));
+      } else if (activeCategory === 'MLBB') {
+        const mlKeywords = ['FLOURITE ML', 'GBOX', 'MOBILE LEGENDS VALLHALA','SENJU PREMIUM','PANDORA MLBB'];
+        matchesCategory = mlKeywords.some(key => name.toUpperCase().includes(key.toUpperCase()));
+      } else if (activeCategory === '8BALL') {
+        const ballKeywords = ['8 BALL', '8BL', 'WOLF BALL', 'WOLFBALL'];
+        matchesCategory = ballKeywords.some(key => name.includes(key));
+      } else if (activeCategory === 'PUBG') {
+        const pubgKeywords = ['PUBG SOLO ANDROID'];
+        matchesCategory = pubgKeywords.some(key => name.includes(key));
+      } else if (activeCategory === 'DELTA FORCE') {
+        const dfKeywords = ['DELTA FORCE SOLO ANDROID'];
+        matchesCategory = dfKeywords.some(key => name.includes(key));
+      }
+      
+      return matchesSearch && matchesCategory;
+    });
+
+    displayProducts(filtered);
+  }
+
+  fetch('data/products.json')
+    .then(res => res.json())
+    .then(data => {
+      allProducts = data;
+      displayProducts(allProducts);
+    });
+
+  searchInput.addEventListener('input', filterProducts);
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    });
+  });
+
+  // LOAD PAYMENTS
+  const payments = [
+    {name:"QRIS", img:"https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_QRIS.svg"},
+    {name:"DANA", img:"https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg"},
+    {name:"GOPAY", img:"https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg"},
+    {name:"OVO", img:"https://upload.wikimedia.org/wikipedia/commons/e/eb/Logo_ovo_purple.svg"},
+    {name:"SHOPEEPAY", img:"https://cdn.freebiesupply.com/logos/large/2x/shopeepay-logo-png-transparent.png"},
+    {name:"BCA", img:"https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg"},
+    {name:"BRI", img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_Logo.svg/512px-BRI_Logo.svg.png"},
+    {name:"MANDIRI", img:"https://upload.wikimedia.org/wikipedia/commons/a/ad/Bank_Mandiri_logo_2016.svg"}
+  ];
+  const pList = document.getElementById('paymentList');
+  payments.forEach(p => {
+    const img = document.createElement('img');
+    img.src = p.img;
+    img.alt = p.name;
+    img.onerror = function() {
+      this.style.display = 'none';
+    };
+    pList.appendChild(img);
+  });
+</script>
+
+
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
