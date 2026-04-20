@@ -1,0 +1,232 @@
+/**
+ * Pakasir Payment Gateway Integration
+ * Mengintegrasikan Pakasir sebagai sistem pembayaran utama
+ * Menggantikan sistem QRIS statis sebelumnya
+ */
+
+const PAKASIR_CONFIG = {
+    // Ganti dengan slug proyek Anda dari dashboard Pakasir
+    slug: 'test-web',
+    apiKey: 'NTZEEYRZ4x9wTDZQ1Zd6bikz5ZemTF2i',
+    
+    // Base URL untuk payment link Pakasir
+    basePaymentUrl: 'https://app.pakasir.com/pay',
+    apiEndpoint: 'https://app.pakasir.com/api/transactioncreate/qris'
+};
+
+/**
+ * Generate Pakasir Payment URL
+ * @param {number} amount - Nominal pembayaran (dalam Rupiah)
+ * @param {string} orderId - ID transaksi unik
+ * @returns {string} URL pembayaran Pakasir
+ */
+function generatePakasirPaymentUrl(amount, orderId) {
+    if (!amount || !orderId) {
+        console.error('Amount dan Order ID harus diisi');
+        return null;
+    }
+    
+    // Validasi amount (harus angka positif)
+    const cleanAmount = parseInt(amount.toString().replace(/[^0-9]/g, ''));
+    if (isNaN(cleanAmount) || cleanAmount <= 0) {
+        console.error('Amount tidak valid');
+        return null;
+    }
+    
+    // Buat URL dasar
+    let url = `${PAKASIR_CONFIG.basePaymentUrl}/${PAKASIR_CONFIG.slug}/${cleanAmount}?order_id=${encodeURIComponent(orderId)}`;
+    
+    // Tambahkan opsi QRIS only jika diaktifkan
+    if (PAKASIR_CONFIG.qrisOnly) {
+        url += '&qris_only=1';
+    }
+    
+    // Tambahkan redirect URL jika diatur
+    if (PAKASIR_CONFIG.redirectUrl) {
+        url += `&redirect=${encodeURIComponent(PAKASIR_CONFIG.redirectUrl)}`;
+    }
+    
+    return url;
+}
+
+/**
+ * Mapping Produk ke Prefix
+ */
+const PRODUCT_PREFIX_MAP = {
+    'drip-cline': 'DP',
+    'hg-cheats': 'HG',
+    'apkmod-namz': 'AS',
+    'drag-head': 'DH',
+    'hologram': 'HO',
+    'file-ios-imazing': 'FI',
+    'br-mods-root': 'BR',
+    'flourite-iosff': 'FF',
+    'flourite-iosmlbb': 'FM',
+    'gbox': 'GB',
+    '8ball-vvip': '8B',
+    'pandora-mlbb': 'PD',
+    'senju-premium': 'SJ',
+    'wolfball_android': 'WA',
+    'wolfball_ios': 'WI',
+    'pubg-solo': 'PG',
+    'delta-force': 'DF',
+    'ml-alara': 'ML',
+    'fox-xiterz': 'FX',
+    'br-emulator': 'BE'
+};
+
+/**
+ * Generate Order ID unik dengan Prefix Produk
+ * @param {string} productId - ID Produk untuk menentukan prefix
+ * @returns {string} - ID transaksi dengan format PREFIX.XXXXX
+ */
+function generateOrderId(productId = '', priceIndex = 0) {
+    const timestamp = Date.now();
+    const random = Math.floor(Math.random() * 9000) + 1000;
+    
+    // Ambil prefix dari product ID
+    let prefix = PRODUCT_PREFIX_MAP[productId] || 'SYS';
+    
+    // Format: NAMZ-PREFIX.RANDOM.TIMESTAMP
+    // Contoh: NAMZ-DP.1234.1773500088392
+    // Kita sertakan timestamp di akhir agar selalu unik, namun tetap menggunakan format NAMZ-PREFIX
+    return `NAMZ-${prefix}.${random}.${timestamp}`;
+}
+
+/**
+ * Membuat transaksi QRIS via API Pakasir
+ * @param {number} amount - Nominal pembayaran
+ * @param {string} orderId - ID transaksi
+ * @returns {Promise<Object>} Response dari API Pakasir
+ */
+async function createPakasirTransaction(amount, orderId) {
+    const payload = {
+        project: PAKASIR_CONFIG.slug,
+        order_id: orderId,
+        amount: parseInt(amount),
+        api_key: PAKASIR_CONFIG.apiKey
+    };
+
+    try {
+        const response = await fetch(PAKASIR_CONFIG.apiEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error creating Pakasir transaction:', error);
+        throw error;
+    }
+}
+
+/**
+ * Memulai proses pembayaran dengan Redirect ke Pakasir (Metode Paling Stabil)
+ * @param {number} amount - Nominal pembayaran
+ * @param {string} orderId - ID transaksi
+ * @param {string} name - Nama pelanggan
+ * @param {string} product - Nama produk
+ * @param {string} item - Nama item
+ */
+async function startPakasirRedirect(amount, orderId, name, product, item, stockId = '') {
+    try {
+        // 1. Buat pesanan di server (create_order.php) agar webhook nanti bisa menemukannya
+        const response = await fetch('create_order.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                order_id: orderId,
+                amount: amount,
+                name: name,
+                product: product,
+                item: item
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Gagal membuat pesanan di server');
+        }
+
+        // 2. Ambil URL dasar website untuk redirect kembali setelah bayar
+        const currentUrl = window.location.href;
+        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/') + 1);
+        const successUrl = baseUrl + 'success.html';
+        
+        // 3. Buat URL pembayaran Pakasir dengan parameter tambahan untuk identifikasi produk di Webhook
+        // Menambahkan parameter 'name' dan 'item' ke URL agar Pakasir mengirimkannya kembali lewat Webhook
+        let paymentUrl = `${PAKASIR_CONFIG.basePaymentUrl}/${PAKASIR_CONFIG.slug}/${amount}`;
+        paymentUrl += `?order_id=${encodeURIComponent(orderId)}`;
+        paymentUrl += `&product_name=${encodeURIComponent(product)}`;
+        paymentUrl += `&item_label=${encodeURIComponent(item)}`;
+        if (stockId) paymentUrl += `&stock_id=${encodeURIComponent(stockId)}`;
+        paymentUrl += `&redirect=${encodeURIComponent(successUrl)}`;
+
+        
+        // 4. Redirect langsung ke Pakasir
+        window.location.href = paymentUrl;
+    } catch (error) {
+        console.error('Redirect error:', error);
+        alert('Maaf, sistem sedang sibuk. Silakan coba beberapa saat lagi.');
+        document.getElementById('processingModal').style.display = 'none';
+    }
+}
+
+/**
+ * Mengecek status pembayaran secara berkala
+ * @param {string} orderId - ID transaksi
+ * @param {number} amount - Nominal pembayaran
+ * @param {Function} onPaid - Callback saat pembayaran berhasil
+ */
+function checkPaymentStatus(orderId, amount, onPaid) {
+    const checkInterval = setInterval(async () => {
+        try {
+            // Kita cek ke file lokal via PHP
+            const response = await fetch(`data/orders/${orderId}.json?t=${Date.now()}`);
+            if (response.ok) {
+                const data = await response.json();
+                if (data.status === 'completed') {
+                    clearInterval(checkInterval);
+                    onPaid();
+                }
+            }
+        } catch (error) {
+            console.error('Status check error:', error);
+        }
+    }, 5000); // Cek setiap 5 detik
+    
+    // Berhenti cek setelah 10 menit (timeout)
+    setTimeout(() => clearInterval(checkInterval), 600000);
+}
+
+/**
+ * Validasi konfigurasi Pakasir
+ * @returns {boolean} True jika konfigurasi valid
+ */
+function validatePakasirConfig() {
+    if (!PAKASIR_CONFIG.slug) {
+        console.error('Pakasir slug tidak dikonfigurasi');
+        return false;
+    }
+    return true;
+}
+
+// Export untuk penggunaan di module lain
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        generatePakasirPaymentUrl,
+        generateOrderId,
+        redirectToPakasirPayment,
+        validatePakasirConfig,
+        PAKASIR_CONFIG
+    };
+}

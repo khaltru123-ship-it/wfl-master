@@ -1,0 +1,170 @@
+/**
+ * QRIS Generator 2026 - IMPROVED VERSION
+ * High-Precision EMVCo Implementation for Indonesia (ASPI Standard)
+ * Dengan dukungan nominal tetap yang langsung muncul saat scan
+ * Guaranteed compatibility dengan DANA, GoPay, OVO, dan QRIS readers lainnya.
+ */
+
+const QRIS_GEN_IMPROVED = {
+    /**
+     * Main function to convert static QRIS to dynamic with fixed nominal.
+     * Nominal akan muncul otomatis saat scan tanpa perlu input manual.
+     */
+    generate: function(qrisAsli, nominal) {
+        if (!qrisAsli || !nominal) return qrisAsli;
+        
+        try {
+            // 1. Clean nominal to only digits
+            let cleanNominal = nominal.toString().replace(/[^0-9]/g, '');
+            if (!cleanNominal || cleanNominal === '0') return qrisAsli;
+
+            // 2. Parse existing QRIS into an object
+            let tags = this.parse(qrisAsli);
+
+            // 3. Transform Static to Dynamic
+            // Tag 01: Initiation Method (11 = Static, 12 = Dynamic)
+            tags['01'] = '12';
+
+            // 4. Inject Transaction Amount (Tag 54)
+            // Format: numeric string tanpa decimal untuk IDR
+            tags['54'] = cleanNominal;
+
+            // 5. Ensure Currency Code (Tag 53) is IDR (360)
+            tags['53'] = '360';
+
+            // 6. Reconstruct and Calculate CRC
+            return this.reconstruct(tags);
+        } catch (e) {
+            console.error("QRIS Rebuild Error:", e);
+            return qrisAsli;
+        }
+    },
+
+    /**
+     * Generate QRIS dengan nominal tetap untuk penggunaan langsung
+     * Nominal akan selalu muncul saat scan tanpa perlu input dari user
+     */
+    generateWithFixedNominal: function(qrisAsli, nominalAmount) {
+        return this.generate(qrisAsli, nominalAmount);
+    },
+
+    /**
+     * Parses a QRIS string into a tag-value object.
+     */
+    parse: function(qris) {
+        let tags = {};
+        let i = 0;
+        while (i < qris.length) {
+            let tag = qris.substr(i, 2);
+            let lenStr = qris.substr(i + 2, 2);
+            let len = parseInt(lenStr);
+            
+            if (isNaN(len)) break;
+            
+            let val = qris.substr(i + 4, len);
+            
+            // Skip CRC tag (63) as it will be recalculated
+            if (tag !== "63") {
+                tags[tag] = val;
+            }
+            i += 4 + len;
+        }
+        return tags;
+    },
+
+    /**
+     * Reconstructs the QRIS string from tags and adds a fresh CRC.
+     */
+    reconstruct: function(tags) {
+        // Sort keys numerically to comply with EMVCo strict order
+        let keys = Object.keys(tags).sort();
+        let payload = "";
+        
+        for (let k of keys) {
+            let v = tags[k];
+            let l = v.length.toString().padStart(2, '0');
+            payload += k + l + v;
+        }
+
+        // Add Tag 63 (CRC) placeholder
+        payload += "6304";
+        
+        // Calculate CRC16 CCITT
+        let crc = this.crc16(payload);
+        return payload + crc;
+    },
+
+    /**
+     * CRC16-CCITT calculation (Polynomial: 0x1021, Initial: 0xFFFF)
+     */
+    crc16: function(str) {
+        let crc = 0xFFFF;
+        for (let i = 0; i < str.length; i++) {
+            let byte = str.charCodeAt(i);
+            crc ^= (byte << 8);
+            for (let j = 0; j < 8; j++) {
+                if (crc & 0x8000) {
+                    crc = (crc << 1) ^ 0x1021;
+                } else {
+                    crc = (crc << 1);
+                }
+                crc &= 0xFFFF;
+            }
+        }
+        return crc.toString(16).toUpperCase().padStart(4, '0');
+    },
+
+    /**
+     * Validate QRIS format
+     */
+    validate: function(qris) {
+        if (!qris || typeof qris !== 'string') return false;
+        if (qris.length < 26) return false;
+        
+        try {
+            let tags = this.parse(qris);
+            return Object.keys(tags).length > 0;
+        } catch (e) {
+            return false;
+        }
+    },
+
+    /**
+     * Extract nominal from QRIS jika ada
+     */
+    extractNominal: function(qris) {
+        try {
+            let tags = this.parse(qris);
+            if (tags['54']) {
+                return parseInt(tags['54']);
+            }
+            return null;
+        } catch (e) {
+            return null;
+        }
+    },
+
+    /**
+     * Extract all tags from QRIS
+     */
+    extractAllTags: function(qris) {
+        return this.parse(qris);
+    }
+};
+
+// Aliases untuk compatibility dengan existing code
+function convertToDynamicQRIS(qris, nominal) {
+    return QRIS_GEN_IMPROVED.generate(qris, nominal);
+}
+
+function generateQRISWithFixedNominal(qris, nominal) {
+    return QRIS_GEN_IMPROVED.generateWithFixedNominal(qris, nominal);
+}
+
+function validateQRIS(qris) {
+    return QRIS_GEN_IMPROVED.validate(qris);
+}
+
+function extractQRISNominal(qris) {
+    return QRIS_GEN_IMPROVED.extractNominal(qris);
+}
