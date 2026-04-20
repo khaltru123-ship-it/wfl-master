@@ -1,1 +1,1403 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://namznewera.my.id/detail.html?id=hg-cheats -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk - WFL MASTER</title>
+  <link rel="stylesheet" href="./HGCHEATs.html_files/all.min.css">
+  <link rel="stylesheet" href="./HGCHEATs.html_files/style.css">
+  <style>
+    :root {
+      --primary-blue: #3b82f6;
+      --dark-bg: #0a0f1a;
+      --card-bg: #111827;
+      --input-bg: #1f2937;
+      --text-gray: #9ca3af;
+      --border-color: #374151;
+    }
 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+    }
+
+    .navbar {
+      background: var(--card-bg);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    .logo { font-weight: 800; font-size: 1.2rem; color: #fff; }
+    .logo span { color: var(--primary-blue); }
+
+    .menu-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    /* SIDEBAR STYLING */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100%;
+      background: #020617;
+      z-index: 1000001;
+      transition: 0.4s ease;
+      padding: 30px 20px;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.8);
+    }
+
+    .sidebar.active {
+      right: 0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 1000000;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar-menu {
+      list-style: none;
+    }
+
+    .sidebar-menu li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar-menu a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+
+    .sidebar-menu a i {
+      color: #3b82f6;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-bottom: 100px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .product-title {
+      text-align: center;
+      color: var(--primary-blue);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .info-header {
+      background: var(--primary-blue);
+      color: white;
+      text-align: center;
+      padding: 8px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+    }
+
+    .product-info-content {
+      font-size: 0.85rem;
+      color: var(--text-gray);
+    }
+
+    .product-info-content ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    .product-info-content li::before {
+      content: "• ";
+      color: var(--primary-blue);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .step-num {
+      background: var(--primary-blue);
+      color: white;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-size: 0.7rem;
+    }
+
+    .input-group input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      padding: 12px 15px;
+      border-radius: 8px;
+      color: white;
+      outline: none;
+    }
+
+    .input-group input::placeholder {
+      color: #4b5563;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .item-option {
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      padding: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .item-option.active {
+      border-color: var(--primary-blue);
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .item-label {
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .item-price {
+      color: var(--primary-blue);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .payment-method {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .payment-icons {
+      display: flex;
+      gap: 5px;
+    }
+
+    .payment-icons img {
+      height: 25px;
+      object-fit: contain;
+    }
+
+    .badge-auto {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #10b981;
+    }
+
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .total-info {
+      flex: 1;
+    }
+
+    .total-info .label {
+      font-size: 0.75rem;
+      color: var(--text-gray);
+      display: block;
+    }
+
+    .total-info .value {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    .buy-now-btn {
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: 0.2s;
+    }
+
+    .buy-now-btn:active {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+
+    /* Modal QRIS - UPDATED */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000002;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background: var(--dark-bg);
+      padding: 30px 20px;
+      border-radius: 15px;
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid var(--primary-blue);
+      position: relative;
+      margin: auto;
+    }
+
+    /* Header dengan Icon */
+    .payment-header {
+      background: var(--primary-blue);
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .payment-header i {
+      font-size: 2rem;
+    }
+
+    .payment-header h3 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+
+    .payment-header p {
+      font-size: 0.85rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    /* Timer */
+    .payment-timer {
+      font-size: 0.8rem;
+      color: var(--text-gray);
+      margin-bottom: 10px;
+    }
+
+    .payment-timer .time {
+      font-size: 1.8rem;
+      color: #ef4444;
+      font-weight: 800;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* QR Code Container */
+    #qrcode-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 20px 0;
+      min-width: 250px;
+      min-height: 250px;
+      border: 3px solid var(--primary-blue);
+    }
+
+    #qrcode-container canvas {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    /* Instruksi */
+    .payment-instruction {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.85rem;
+      color: var(--text-gray);
+      border: 1px solid var(--border-color);
+    }
+
+    .payment-instruction p {
+      margin: 8px 0;
+    }
+
+    /* Total Pembayaran */
+    .payment-total {
+      background: var(--primary-blue);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-weight: 700;
+    }
+
+    .payment-total .label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .payment-total .amount {
+      font-size: 1.5rem;
+      margin-top: 5px;
+    }
+
+    /* License Key Section */
+    .license-key-section {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .license-key-section label {
+      font-size: 0.75rem;
+      color: var(--text-gray);
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .license-key-input-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .license-key-input {
+      flex: 1;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: #000;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      word-break: break-all;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .copy-license-btn {
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.8rem;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    .copy-license-btn:hover {
+      background: #2563eb;
+    }
+
+    .copy-license-btn.copied {
+      background: #10b981;
+    }
+
+    /* Download Button Styles (v4.1) */
+    .download-section {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #10b981;
+      color: white;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .download-btn i {
+      font-size: 1.1rem;
+    }
+
+    /* Product Detail in Modal (v3.4 - Reference Match) */
+    .product-detail-modal {
+      text-align: left;
+      margin: 20px 0;
+    }
+    .product-detail-modal-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #9ca3af;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .product-detail-modal-content {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .product-detail-modal-img {
+      width: 55px;
+      height: 55px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid #374151;
+    }
+    .product-detail-modal-info {
+      flex: 1;
+    }
+    .product-detail-modal-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .product-detail-modal-item {
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    
+    .price-summary-box {
+      background: #111827;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #1f2937;
+    }
+    .price-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+    .price-summary-label {
+      color: #9ca3af;
+    }
+    .price-summary-value {
+      color: #fff;
+      font-weight: 600;
+    }
+    .price-summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #1f2937;
+    }
+    .total-label {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .total-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    /* Transaction Info */
+    .transaction-info {
+      background: var(--input-bg);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-size: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .transaction-info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .transaction-info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .transaction-info-label {
+      color: var(--text-gray);
+    }
+
+    .transaction-info-value {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-block;
+      background: #fbbf24;
+      color: #000;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* Buttons */
+    .modal-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-home {
+      flex: 1;
+      background: #374151;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-home:hover {
+      background: #4b5563;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: var(--text-gray);
+      cursor: pointer;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      padding: 5px;
+    }
+
+    .close-modal:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">WFL<span style="color: #3b82f6;">MASTER</span></div>
+  <div class="menu-toggle" id="menuToggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</header>
+
+<!-- SIDEBAR & OVERLAY -->
+<div class="overlay" id="overlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <h3 style="color:#3b82f6;">MENU ADMIN</h3>
+    <div id="closeMenu" style="cursor:pointer; font-size:1.5rem;"><i class="fa-solid fa-xmark"></i></div>
+  </div>
+  <ul class="sidebar-menu">
+    <li><a href="https://wa.me/62895422540345" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Admin</a></li>
+    <li><a href="https://t.me/namzne" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram Admin</a></li>
+    <li><a href="https://whatsapp.com/channel/0029Vas71qUHltY7x9nNLe2T" target="_blank"><i class="fa-solid fa-bullhorn"></i> Saluran Admin</a></li>
+  </ul>
+</div>
+
+<div class="container">
+  <a href="WFL MASTER.html" class="back-link"><i class="fas fa-arrow-left"></i> &nbsp; kembali</a>
+
+  <div id="product-title" class="product-title">HG CHEATS NO ROOT FF</div>
+  
+  <div class="info-header">INFORMATION PRODUCT</div>
+
+  <div class="card">
+    <div id="product-desc" class="product-info-content">FITUR HG CHEATS NO ROOT FF :<br><ul><li>All Fitur Hs</li><li>All Esp</li><li>All Fitur Brutal</li><li>No Root</li><li>Anti ban</li></ul><br>SUPPORT ALL VERSION</div>
+  </div>
+
+  <div class="section-title">
+    <div class="step-num">1</div> DATA PEMBELI
+  </div>
+  <div class="card">
+    <div class="input-group" style="margin-bottom: 10px;">
+      <input type="text" id="customer-name" placeholder="Masukkan Nama Anda (Bebas)" fdprocessedid="t2wgai">
+    </div>
+    <div class="input-group">
+      <input type="tel" id="customer-phone" placeholder="Masukkan Nomor WhatsApp (Opsional)" fdprocessedid="tdms2">
+    </div>
+  </div>
+
+  <div class="section-title">
+    <div class="step-num">2</div> PILIH ITEM
+  </div>
+  <div class="item-grid" id="item-list"><div class="item-option active"><span class="item-label">1 day</span><span class="item-price">Rp&nbsp;25.000</span></div><div class="item-option"><span class="item-label">7 day </span><span class="item-price">Rp&nbsp;60.000</span></div><div class="item-option"><span class="item-label">10 day</span><span class="item-price">Rp&nbsp;70.000</span></div><div class="item-option"><span class="item-label">30 day</span><span class="item-price">Rp&nbsp;250.000</span></div></div>
+
+  <div style="margin-top: 20px;" class="section-title">
+    <div class="step-num">3</div> PAYMENT METHOD
+  </div>
+  <div class="card">
+    <div class="payment-method">
+      <div>
+        <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 5px;">Support E-Wallet &amp; Bank</div>
+        <div class="payment-icons">
+          <img src="./HGCHEATs.html_files/Logo_QRIS.svg" alt="QRIS">
+        </div>
+      </div>
+      <div class="badge-auto">PAKASIR</div>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <div class="total-info">
+    <span class="label">Jumlah</span>
+    <span class="value" id="bottom-total">Rp&nbsp;25.000</span>
+  </div>
+  <button class="buy-now-btn" id="buyNowBtn" fdprocessedid="ff5q9">BELI SEKARANG</button>
+</div>
+
+<!-- Modal QRIS Pembayaran - UPDATED -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal-content">
+    <button class="close-modal" id="closePaymentModal">×</button>
+
+    <!-- Header Status (v3.1) -->
+    <div id="paymentHeaderStatus">
+      <div class="payment-header">
+        <i class="fas fa-clock"></i>
+        <h3>MENUNGGU PEMBAYARAN</h3>
+        <p>Scan QR Code QRIS untuk membayar</p>
+      </div>
+
+      <!-- Timer -->
+      <div class="payment-timer">
+        <div style="font-size: 0.8rem; margin-bottom: 5px;">BATAS WAKTU PEMBAYARAN</div>
+        <div class="time" id="paymentTimer">60:00</div>
+      </div>
+    </div>
+
+    <!-- QR Code -->
+    <div id="qrcode-container"></div>
+
+    <!-- Detail Produk (v3.4) -->
+    <div class="product-detail-modal">
+      <div class="product-detail-modal-title">DETAIL PRODUK</div>
+      <div class="product-detail-modal-content">
+        <img id="modalProductImg" src="./HGCHEATs.html_files/qris.png" alt="Product" class="product-detail-modal-img">
+        <div class="product-detail-modal-info">
+          <div id="modalProductName" class="product-detail-modal-name">-</div>
+          <div id="modalItemLabel" class="product-detail-modal-item">-</div>
+        </div>
+      </div>
+      
+      <!-- Price Summary Box -->
+      <div class="price-summary-box">
+        <div class="price-summary-row">
+          <span class="price-summary-label">Harga Satuan</span>
+          <span class="price-summary-value" id="modalItemPrice">Rp 0</span>
+        </div>
+        <div class="price-summary-row">
+          <span class="price-summary-label">Jumlah</span>
+          <span class="price-summary-value">x1</span>
+        </div>
+        <div class="price-summary-total">
+          <span class="total-label">Total Bayar</span>
+          <span class="total-value" id="modalTotalPay">Rp 0</span>
+        </div>
+      </div>
+      <p style="text-align: center; color: #6b7280; font-size: 0.75rem; margin-top: 20px;">Halaman akan update otomatis setelah pembayaran berhasil</p>
+    </div>
+
+    <!-- Instruksi -->
+    <div class="payment-instruction">
+      <p><strong>Cara Pembayaran:</strong></p>
+      <p>1. Buka aplikasi e-wallet atau mobile banking Anda (DANA, GoPay, OVO, dll)</p>
+      <p>2. Pilih fitur "Scan QRIS" atau "Bayar QRIS"</p>
+      <p>3. Arahkan kamera ke QR Code di atas</p>
+      <p>4. Tunggu hingga nominal muncul otomatis</p>
+      <p>5. Konfirmasi dan selesaikan pembayaran</p>
+    </div>
+
+    <!-- Total Pembayaran -->
+    <div class="payment-total">
+      <div class="label">Total Pembayaran</div>
+      <div class="amount" id="paymentAmount">Rp&nbsp;25.000</div>
+    </div>
+
+    <!-- License Key Section -->
+    <div class="license-key-section">
+      <label for="licenseKeyInput">License Key Anda</label>
+      <div class="license-key-input-group">
+        <div class="license-key-input" id="licenseKeyInput">Menunggu konfirmasi pembayaran...</div>
+        <button class="copy-license-btn" id="copyLicenseBtn" style="display: none;" onclick="copyLicenseKey()">
+          <i class="fas fa-copy"></i> Salin
+        </button>
+      </div>
+      
+      <!-- Download Link Section (v4.1) -->
+      <div class="download-section" id="downloadSection" style="display: none;">
+        <a href="https://namznewera.my.id/detail.html?id=hg-cheats#" id="downloadBtn" class="download-btn" target="_blank">
+          <i class="fas fa-download"></i> DOWNLOAD PRODUK
+        </a>
+      </div>
+    </div>
+
+    <!-- Transaction Info -->
+    <div class="transaction-info">
+      <div class="transaction-info-row">
+        <span class="transaction-info-label">ID Transaksi:</span>
+        <span class="transaction-info-value" id="transactionId">-</span>
+      </div>
+      <div class="transaction-info-row">
+        <span class="transaction-info-label">Tanggal:</span>
+        <span class="transaction-info-value" id="transactionDate">-</span>
+      </div>
+      <div class="transaction-info-row">
+        <span class="transaction-info-label">Status:</span>
+        <span class="transaction-info-value" id="transactionStatus">
+          <span class="status-badge">PENDING</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="modal-buttons">
+      <button class="btn-home" id="backToShopBtn" onclick="closePaymentModal()">KEMBALI KE TOKO</button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="./HGCHEATs.html_files/qrcode.min.js.download"></script>
+<script src="./HGCHEATs.html_files/qris-lib.js.download"></script>
+<script src="./HGCHEATs.html_files/qris-generator-improved.js.download"></script>
+<script src="./HGCHEATs.html_files/pakasir-integration.js.download"></script>
+
+<script>
+  let currentProduct = null;
+  let selectedItem = null;
+  let selectedItemIndex = -1;  // PERBAIKAN V4.7: Simpan index paket yang dipilih
+  let discountAmount = 0;
+  let appliedPromoCode = "";
+  let currentOrderId = null;
+  let paymentTimerInterval = null;
+  let licenseKeyCheckInterval = null;
+
+  // PERBAIKAN V5.5: Hapus fitur Kode Promo, gunakan Promo Produk saja
+
+  function formatRupiah(num) {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
+  }
+
+  function parsePrice(priceStr) {
+    if (!priceStr) return 0;
+    let clean = priceStr.toString().toUpperCase().replace(/[^0-9K]/g, '');
+    if (clean.endsWith('K')) {
+      return parseInt(clean.replace('K', '')) * 1000;
+    }
+    return parseInt(clean) || 0;
+  }
+
+  function selectItem(index) {
+    if (!currentProduct || !currentProduct.prices[index]) return;
+    selectedItem = currentProduct.prices[index];
+    selectedItemIndex = index;  // PERBAIKAN V4.7: Simpan index dengan akurat
+    document.querySelectorAll('.item-option').forEach((opt, i) => {
+      if (i === index) opt.classList.add('active');
+      else opt.classList.remove('active');
+    });
+    updateTotalDisplay();
+  }
+
+  function updateTotalDisplay() {
+    if (!selectedItem) return;
+    const originalPrice = parsePrice(selectedItem.price);
+    // PERBAIKAN V5.3: Cek apakah ada promo untuk item ini
+    let finalPrice = originalPrice;
+    if (selectedItem.promo && selectedItem.promo_price) {
+      // PERBAIKAN: Jika promo_price < 1000, anggap sebagai ribuan (misal 25 -> 25000)
+      let pPrice = parseInt(selectedItem.promo_price);
+      finalPrice = (pPrice > 0 && pPrice < 1000) ? pPrice * 1000 : pPrice;
+    }
+
+    // Diskon dari Kode Promo sudah dihapus, hanya gunakan Promo Produk
+
+    document.getElementById('bottom-total').textContent = formatRupiah(finalPrice);
+    document.getElementById('paymentAmount').textContent = formatRupiah(finalPrice);
+  }
+
+  function startPaymentTimer(serverTimeLeft) {
+    // PERBAIKAN V7.0: Gunakan serverTimeLeft yang akurat, default 3600 detik (60 menit)
+    let timeLeft = Math.max(0, serverTimeLeft || 3600);
+    
+    if (paymentTimerInterval) clearInterval(paymentTimerInterval);
+    
+    function updateDisplay() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      document.getElementById('paymentTimer').textContent = 
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      
+      if (timeLeft <= 0) {
+        clearInterval(paymentTimerInterval);
+        // Jangan langsung tutup modal, biarkan user lihat status
+        // closePaymentModal();
+        // alert('Waktu pembayaran telah habis. Silakan buat pesanan baru.');
+      }
+    }
+    
+    updateDisplay();
+    paymentTimerInterval = setInterval(() => {
+      timeLeft--;
+      updateDisplay();
+    }, 1000);
+  }
+
+  function generateQRCode(qrisString) {
+    const qrcodeContainer = document.getElementById('qrcode-container');
+    qrcodeContainer.innerHTML = '';
+    
+    try {
+      if (typeof QRCode !== 'undefined') {
+        new QRCode(qrcodeContainer, {
+          text: qrisString,
+          width: 230,
+          height: 230,
+          colorDark: '#000000',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      } else {
+        console.error('QRCode library not loaded');
+        qrcodeContainer.innerHTML = '<p style="color: #ef4444;">Library QR Code belum dimuat. Silakan refresh halaman.</p>';
+      }
+    } catch (error) {
+      console.error('QR Code generation exception:', error);
+      qrcodeContainer.innerHTML = '<p style="color: #ef4444;">Error: ' + error.message + '</p>';
+    }
+  }
+
+  function copyLicenseKey() {
+    const licenseKey = document.getElementById('licenseKeyInput').textContent;
+    
+    if (licenseKey === 'Menunggu konfirmasi pembayaran...') {
+      alert('License key belum tersedia');
+      return;
+    }
+    
+    navigator.clipboard.writeText(licenseKey).then(() => {
+      const btn = document.getElementById('copyLicenseBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Tersalin!';
+      btn.classList.add('copied');
+      
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function checkLicenseKeyStatus(orderId) {
+    if (licenseKeyCheckInterval) clearInterval(licenseKeyCheckInterval);
+    
+    licenseKeyCheckInterval = setInterval(async () => {
+      try {
+        const response = await fetch(`check_order.php?order_id=${encodeURIComponent(orderId)}&t=${Date.now()}`, {
+          method: 'GET',
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          }
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          
+          if (data.status === 'completed' || data.status === 'success' || data.status === 'PAID') {
+            // Update status di BAGIAN ATAS (v3.1)
+            document.getElementById('paymentHeaderStatus').innerHTML = 
+              '<div style="text-align:center; color:#10b981; font-weight:800; padding: 20px 0;">' +
+              '<i class="fas fa-check-circle" style="font-size:4rem; margin-bottom:10px; display:block;"></i>' +
+              '<div style="font-size:1.5rem;">PEMBAYARAN BERHASIL</div>' +
+              '</div>';
+            
+            // Sembunyikan kotak QR Code sepenuhnya (v3.3)
+            document.getElementById('qrcode-container').style.display = 'none';
+            
+            // Kosongkan status di bawah jika ada
+            document.getElementById('transactionStatus').innerHTML = '<span class="status-badge" style="background:#10b981;">COMPLETED</span>';
+            
+            // Update license key (v3.5)
+            if (data.product_content) {
+              if (data.product_content === "STOK_HABIS" || data.product_content === "STOK_BELUM_DIATUR" || data.product_content === "Menunggu Pembayaran...") {
+                if (data.product_content === "Menunggu Pembayaran...") {
+                    document.getElementById('licenseKeyInput').textContent = "STOK KOSONG / BELUM DIISI";
+                } else {
+                    document.getElementById('licenseKeyInput').textContent = "STOK KOSONG";
+                }
+                document.getElementById('licenseKeyInput').style.color = "#ef4444";
+                document.getElementById('copyLicenseBtn').style.display = 'none';
+                
+                const waContainer = document.createElement('div');
+                waContainer.style.cssText = 'margin-top: 15px; padding: 12px; background: rgba(37, 211, 102, 0.1); border: 1px solid #25d366; border-radius: 8px; text-align: center;';
+                waContainer.innerHTML = `
+                  <a href="https://wa.me/6285741193887?text=Halo%20Admin%2C%20stok%20kosong.%20Order%20ID%3A%20${orderId}" target="_blank" style="background: #25d366; color: white; text-decoration: none; padding: 10px 15px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; font-size: 0.85rem;" onmouseover="this.style.background='#20ba5a'" onmouseout="this.style.background='#25d366'">
+                    <i class="fab fa-whatsapp" style="font-size: 1rem;"></i> HUBUNGI ADMIN (AMBIL MANUAL)
+                  </a>
+                `;
+                const licenseSection = document.querySelector('.license-key-section');
+                if (!document.getElementById('wa-manual-btn')) {
+                    waContainer.id = 'wa-manual-btn';
+                    licenseSection.appendChild(waContainer);
+                }
+              } else {
+                document.getElementById('licenseKeyInput').textContent = data.product_content;
+                document.getElementById('licenseKeyInput').style.color = "#000";
+                document.getElementById('copyLicenseBtn').style.display = 'block';
+                
+                const waBtn = document.getElementById('wa-manual-btn');
+                if (waBtn) waBtn.remove();
+              }
+            }
+
+            // Update Download Link (v4.1)
+            if (data.download_link) {
+              const downloadSection = document.getElementById('downloadSection');
+              const downloadBtn = document.getElementById('downloadBtn');
+              downloadBtn.href = data.download_link;
+              downloadSection.style.display = 'block';
+            }
+            
+            // PERBAIKAN V5.0: Jangan hapus currentOrder di sini
+            // Biarkan tetap tersimpan agar bisa dipulihkan saat refresh
+            // localStorage.removeItem('currentOrder');
+            
+            clearInterval(licenseKeyCheckInterval);
+          }
+        }
+      } catch (error) {
+        console.error('License key check error:', error);
+      }
+    }, 2000);
+    
+    setTimeout(() => clearInterval(licenseKeyCheckInterval), 3600000);
+  }
+
+  function showPaymentModal(orderId, amount, qrisString, serverTimeLeft) {
+    currentOrderId = orderId;
+    document.getElementById('transactionId').textContent = orderId;
+    
+    const now = new Date();
+    const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
+    const formattedDate = `${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}, ${now.getHours().toString().padStart(2, '0')}.${now.getMinutes().toString().padStart(2, '0')}`;
+    document.getElementById('transactionDate').textContent = formattedDate;
+    
+    document.getElementById('paymentAmount').textContent = formatRupiah(amount);
+    
+    if (currentProduct && selectedItem) {
+      document.getElementById('modalProductImg').src = currentProduct.img || 'assets/img/qris.png';
+      document.getElementById('modalProductName').textContent = currentProduct.name;
+      document.getElementById('modalItemLabel').textContent = selectedItem.label;
+      // PERBAIKAN V5.3: Tampilkan harga promo di modal jika ada
+      let displayPrice = parsePrice(selectedItem.price);
+      if (selectedItem.promo && selectedItem.promo_price) {
+        let pPrice = parseInt(selectedItem.promo_price);
+        displayPrice = (pPrice > 0 && pPrice < 1000) ? pPrice * 1000 : pPrice;
+      }
+      document.getElementById('modalItemPrice').textContent = formatRupiah(displayPrice);
+      document.getElementById('modalTotalPay').textContent = formatRupiah(amount);
+    }
+    
+    generateQRCode(qrisString);
+    // PERBAIKAN V7.0: Pastikan serverTimeLeft adalah angka positif
+    const validTimeLeft = Math.max(0, serverTimeLeft || 3600);
+    startPaymentTimer(validTimeLeft);
+    checkLicenseKeyStatus(orderId);
+    document.getElementById('paymentModal').style.display = 'flex';
+  }
+
+  function closePaymentModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+    if (paymentTimerInterval) clearInterval(paymentTimerInterval);
+    if (licenseKeyCheckInterval) clearInterval(licenseKeyCheckInterval);
+    // PERBAIKAN V5.0: Jangan hapus currentOrder saat ditutup manual
+    // Biarkan tetap tersimpan agar bisa dipulihkan saat refresh
+    // localStorage.removeItem('currentOrder');
+  }
+
+  async function handleBuyNow() {
+    const nameInput = document.getElementById('customer-name');
+    const name = nameInput ? nameInput.value.trim() : "";
+    const phoneInput = document.getElementById('customer-phone');
+    const phone = phoneInput ? phoneInput.value.trim() : "";
+    
+    if (!name) {
+      alert("Masukkan nama Anda terlebih dahulu!");
+      return;
+    }
+    if (!selectedItem) {
+      alert("Pilih item terlebih dahulu!");
+      return;
+    }
+
+    // PERBAIKAN V5.4: Gunakan harga promo jika tersedia
+    let originalPrice = parsePrice(selectedItem.price);
+    if (selectedItem.promo && selectedItem.promo_price) {
+      let pPrice = parseInt(selectedItem.promo_price);
+      originalPrice = (pPrice > 0 && pPrice < 1000) ? pPrice * 1000 : pPrice;
+    }
+    const finalPrice = Math.max(0, originalPrice - discountAmount);
+    // PERBAIKAN V4.7: Gunakan selectedItemIndex yang sudah disimpan dengan akurat
+    const priceIndex = selectedItemIndex >= 0 ? selectedItemIndex : currentProduct.prices.indexOf(selectedItem);
+    const stockId = currentProduct.id + '_' + priceIndex;
+    const orderId = generateOrderId(currentProduct.id, priceIndex);
+    
+    // Simpan data order ke localStorage
+    localStorage.setItem('currentOrder', JSON.stringify({
+      name: name,
+      phone: phone,
+      product: currentProduct.name,
+      item: selectedItem.label,
+      amount: finalPrice,
+      orderId: orderId,
+      productId: currentProduct.id,
+      stock_id: stockId, // Simpan stock_id untuk pemulihan sesi
+      timestamp: new Date().toISOString()
+    }));
+
+    try {
+      const response = await fetch('create_order.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          order_id: orderId,
+          amount: finalPrice,
+          name: name,
+          phone: phone,
+          product: currentProduct.name,
+          item: selectedItem.label,
+          product_id: currentProduct.id,
+          stock_id: stockId
+        })
+      });
+
+      if (!response.ok) throw new Error('Gagal membuat pesanan');
+
+      const paymentResponse = await fetch('process_payment.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          order_id: orderId,
+          amount: finalPrice,
+          name: name,
+          phone: phone,
+          product: currentProduct.name,
+          item: selectedItem.label,
+          product_id: currentProduct.id,
+          stock_id: stockId  // PERBAIKAN V4.2: WAJIB kirim stock_id ke process_payment.php
+        })
+      });
+
+      const paymentData = await paymentResponse.json();
+      if (paymentData.payment && paymentData.payment.payment_number) {
+        // PERBAIKAN V7.0: Selalu gunakan 3600 detik (60 menit) untuk pembayaran baru
+        showPaymentModal(orderId, finalPrice, paymentData.payment.payment_number, 3600);
+      } else {
+        throw new Error(paymentData.message || 'Gagal mendapatkan kode QRIS');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      console.error('Error details:', error.message);
+      alert('Maaf, terjadi kesalahan: ' + error.message + '. Silakan coba beberapa saat lagi atau hubungi admin.');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const closeMenu = document.getElementById('closeMenu');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+
+    if (menuToggle) menuToggle.onclick = () => { sidebar.classList.add('active'); overlay.classList.add('active'); };
+    if (closeMenu) closeMenu.onclick = () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); };
+    if (overlay) overlay.onclick = () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); };
+
+    const buyNowBtn = document.getElementById('buyNowBtn');
+    if (buyNowBtn) buyNowBtn.addEventListener('click', handleBuyNow);
+
+    const closePaymentModalBtn = document.getElementById('closePaymentModal');
+    if (closePaymentModalBtn) closePaymentModalBtn.addEventListener('click', closePaymentModal);
+
+    // PERBAIKAN V5.5: Event listener Kode Promo sudah dihapus
+
+    try {
+      const res = await fetch('data/products.json');
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      if (!Array.isArray(data)) {
+        throw new Error('Data produk bukan array');
+      }
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      currentProduct = data.find(p => p.id === id);
+      
+      if (!currentProduct) {
+        document.getElementById('product-title').textContent = "Produk Tidak Ditemukan";
+        document.getElementById('product-desc').textContent = "Maaf, produk yang Anda cari tidak tersedia.";
+        return;
+      }
+      
+      document.getElementById('product-title').textContent = currentProduct.name;
+      
+      let featuresHtml = `FITUR ${currentProduct.name} :<br><ul>`;
+      currentProduct.features.forEach(f => { featuresHtml += `<li>${f}</li>`; });
+      featuresHtml += `</ul><br>SUPPORT ALL VERSION`;
+      document.getElementById('product-desc').innerHTML = featuresHtml;
+
+      const itemList = document.getElementById('item-list');
+      itemList.innerHTML = "";
+      currentProduct.prices.forEach((p, index) => {
+        const div = document.createElement('div');
+        div.className = 'item-option';
+        div.onclick = () => selectItem(index);
+        // PERBAIKAN V5.3: Tampilkan harga promo jika ada
+        let priceDisplay = formatRupiah(parsePrice(p.price));
+        let priceHTML = `<span class="item-label">${p.label}</span><span class="item-price">${priceDisplay}</span>`;
+        if (p.promo && p.promo_price) {
+          let pPrice = parseInt(p.promo_price);
+          let actualPromoPrice = (pPrice > 0 && pPrice < 1000) ? pPrice * 1000 : pPrice;
+          priceHTML = `<span class="item-label">${p.label}</span><span class="item-price" style="text-decoration: line-through; color: #9ca3af;">${priceDisplay}</span><span class="item-price" style="color: #10b981; font-weight: 700;">${formatRupiah(actualPromoPrice)}</span>`;
+        }
+        div.innerHTML = priceHTML;
+        itemList.appendChild(div);
+      });
+
+      if (currentProduct.prices.length > 0) selectItem(0);
+
+      // RESTORE SESSION LOGIC (v6.0 - FIXED SYNC)
+      // PENTING: Tunggu sampai semua elemen modal siap sebelum restore session
+      await new Promise(resolve => setTimeout(resolve, 50));
+      
+      const savedOrderStr = localStorage.getItem('currentOrder');
+      if (savedOrderStr) {
+        try {
+          const order = JSON.parse(savedOrderStr);
+          if (order.productId === id || order.product === currentProduct.name) {
+            // Cek status order dari server dengan anti-cache
+            const checkRes = await fetch(`check_order.php?order_id=${encodeURIComponent(order.orderId)}&t=${Date.now()}`, {
+              method: 'GET',
+              cache: 'no-store',
+              headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
+                'Pragma': 'no-cache',
+                'Expires': '0'
+              }
+            });
+            
+            const checkData = await checkRes.json();
+            
+            // PERBAIKAN V7.0: Prioritaskan status completed - LANGSUNG TAMPILKAN MODAL & KEY
+            if (checkData.status === 'completed' || checkData.status === 'success' || checkData.status === 'PAID') {
+              selectedItem = currentProduct.prices.find(p => p.label === order.item) || currentProduct.prices[0];
+              
+              // Tampilkan modal pembayaran berhasil dengan remaining_seconds yang akurat
+              const remainingTime = checkData.remaining_seconds || 0;
+              showPaymentModal(order.orderId, order.amount, 'PAID', remainingTime);
+              
+              // Tunggu modal terbuka sebelum update konten
+              await new Promise(resolve => setTimeout(resolve, 100));
+              
+              // Update header status
+              document.getElementById('paymentHeaderStatus').innerHTML = 
+                '<div style="text-align:center; color:#10b981; font-weight:800; padding: 20px 0;">' +
+                '<i class="fas fa-check-circle" style="font-size:4rem; margin-bottom:10px; display:block;"></i>' +
+                '<div style="font-size:1.5rem;">PEMBAYARAN BERHASIL</div>' +
+                '</div>';
+              
+              // Sembunyikan QR Code
+              const qrcodeContainer = document.getElementById('qrcode-container');
+              if (qrcodeContainer) qrcodeContainer.style.display = 'none';
+              
+              // Update status badge
+              const transactionStatus = document.getElementById('transactionStatus');
+              if (transactionStatus) transactionStatus.innerHTML = '<span class="status-badge" style="background:#10b981;">COMPLETED</span>';
+              
+              // Tampilkan license key
+              if (checkData.product_content) {
+                const licenseKeyInput = document.getElementById('licenseKeyInput');
+                const copyLicenseBtn = document.getElementById('copyLicenseBtn');
+                
+                if (checkData.product_content === "STOK_HABIS" || checkData.product_content === "STOK_BELUM_DIATUR" || checkData.product_content === "Menunggu Pembayaran...") {
+                  licenseKeyInput.textContent = "STOK KOSONG";
+                  licenseKeyInput.style.color = "#ef4444";
+                  copyLicenseBtn.style.display = 'none';
+                } else {
+                  licenseKeyInput.textContent = checkData.product_content;
+                  licenseKeyInput.style.color = "#000";
+                  copyLicenseBtn.style.display = 'block';
+                }
+              }
+              
+              // Tampilkan link download jika ada
+              if (checkData.download_link) {
+                const downloadSection = document.getElementById('downloadSection');
+                const downloadBtn = document.getElementById('downloadBtn');
+                if (downloadSection && downloadBtn) {
+                  downloadBtn.href = checkData.download_link;
+                  downloadSection.style.display = 'block';
+                }
+              }
+            } else if (checkData.status === 'pending' && checkData.remaining_seconds > 0) {
+              // Jika masih pending, panggil ulang process_payment untuk mendapatkan nomor pembayaran/QRIS
+              const payRes = await fetch('process_payment.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  order_id: order.orderId,
+                  amount: order.amount,
+                  name: order.name,
+                  phone: order.phone,
+                  product: order.product,
+                  item: order.item,
+                  product_id: order.productId,
+                  stock_id: order.stock_id
+                })
+              })
+              .then(res => res.json())
+              .then(payData => {
+                if (payData.payment && payData.payment.payment_number) {
+                  selectedItem = currentProduct.prices.find(p => p.label === order.item) || currentProduct.prices[0];
+                  // PERBAIKAN V7.0: Gunakan remaining_seconds yang akurat dari server
+                  const remainingTime = checkData.remaining_seconds || 3600;
+                  showPaymentModal(order.orderId, order.amount, payData.payment.payment_number, remainingTime);
+                }
+              });
+            }
+          }
+        } catch (restoreErr) {
+          console.error("Restore session error:", restoreErr);
+        }
+      }
+    } catch (err) {
+      console.error("Fetch Error:", err);
+      document.getElementById('product-title').textContent = "Gagal Memuat Produk: " + err.message;
+      document.getElementById('product-desc').textContent = "Error: " + err.message + ". Silakan refresh halaman atau hubungi admin.";
+    }
+  });
+</script>
+
+
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://cofdbpoegempjloogbagkncekinflcnj/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller><span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
